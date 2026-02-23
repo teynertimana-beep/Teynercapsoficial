@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>TEYNER CAPS - Tienda Oficial</title>
+  
+  <script>
+  !function (w, d, t) {
+    w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+  var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+  ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+
+    ttq.load('D6DRPCBC77UDFNKRI680');
+    ttq.page();
+  }(window, document, 'ttq');
+  </script>
+  <style>
+    :root { --accent: #25d366; --gold: #bf953f; }
+    body { font-family: 'Helvetica', Arial, sans-serif; background-color: #0d0d0d; color: #ffffff; margin: 0; padding-bottom: 100px; overflow-x: hidden; }
+    
+    .banner-urgencia { background: #ff4d4d; color: white; text-align: center; padding: 10px; font-size: 11px; font-weight: bold; position: sticky; top: 0; z-index: 1000; letter-spacing: 1px; }
+    
+    .header { text-align: center; padding: 20px 0; }
+    .logo-principal { width: 90px; border-radius: 50%; border: 2px solid var(--accent); padding: 5px; background: #1a1a1a; }
+    .nombre-marca { font-size: 24px; font-weight: 900; margin-top: 10px; letter-spacing: 3px; }
+
+    .portada-container { width: 100%; position: relative; line-height: 0; margin-bottom: 20px; }
+    .portada-img { width: 100%; height: auto; display: block; }
+    .portada-texto { 
+      position: absolute; 
+      bottom: 0; left: 0; right: 0; 
+      background: linear-gradient(transparent, rgba(0,0,0,0.9) 85%); 
+      padding: 40px 15px 15px 15px; 
+    }
+    .portada-texto h2 { margin: 0; font-size: 20px; text-transform: uppercase; color: #fff; line-height: 1.2; }
+    .portada-texto p { margin: 8px 0 0 0; font-size: 12px; color: var(--accent); font-weight: bold; letter-spacing: 0.5px; }
+
+    .wsp-float {
+      position: fixed; bottom: 20px; right: 15px; left: 15px; background: var(--accent);
+      color: white; padding: 18px; border-radius: 50px; display: flex; align-items: center;
+      justify-content: center; gap: 10px; text-decoration: none; font-weight: 900;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8); z-index: 9999; font-size: 14px;
+    }
+
+    .metodos-entrega-top { background: var(--accent); color: #000; text-align: center; padding: 12px; margin: 10px 15px; border-radius: 12px; font-weight: 900; font-size: 12px; }
+
+    .seccion-dino-dorado { 
+      background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 45%, #b38728 100%); 
+      margin: 15px; border-radius: 15px; padding: 18px; text-align: center; color: #000; 
+      font-weight: 900; border: 2px solid #fff; font-size: 13px;
+    }
+
+    .grid-productos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 15px; }
+    .producto { background-color: #1a1a1a; border: 1px solid #333; border-radius: 15px; padding: 10px; text-align: center; position: relative; }
+    .tag-pago { position: absolute; top: 15px; left: 15px; background: #fff; color: #000; font-size: 7px; padding: 4px 6px; border-radius: 4px; z-index: 10; font-weight: 900; }
+
+    .contenedor-galeria { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; border-radius: 10px; background: #000; scrollbar-width: none; height: 145px; }
+    .contenedor-galeria::-webkit-scrollbar { display: none; }
+    .contenedor-galeria img { width: 100%; flex-shrink: 0; height: 100%; object-fit: contain; scroll-snap-align: center; }
+
+    .nombre-modelo { font-size: 10px; font-weight: bold; height: 32px; display: flex; align-items: center; justify-content: center; margin: 8px 0; line-height: 1.2; }
+    .precio { color: var(--accent); font-weight: 900; font-size: 18px; display: block; margin-bottom: 8px; }
+    .selector-talla { width: 100%; padding: 8px; background: #222; border: 1px solid #444; border-radius: 6px; color: white; font-size: 11px; margin-bottom: 8px; }
+    .btn-wsp { background: var(--accent); color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; font-weight: bold; font-size: 10px; }
+
+    .box-logistica { background: #1a1a1a; margin: 0 15px 12px; padding: 15px; border-radius: 15px; border: 1px solid #333; }
+    .box-logistica b { color: var(--accent); display: block; margin-bottom: 5px; font-size: 13px; }
+    .box-logistica p { margin: 0; font-size: 11px; color: #ccc; }
+
+    .seccion-testimonios { background: #111; padding: 30px 15px; margin-top: 20px; }
+    .testimonio-card { background: #1a1a1a; padding: 15px; border-radius: 15px; margin-bottom: 15px; border-left: 4px solid var(--accent); }
+    .llegada-foto { width: 75px; height: 75px; border-radius: 8px; object-fit: cover; margin-top: 10px; margin-right: 5px; border: 1px solid #333; }
+
+    .modal { display: none; position: fixed; z-index: 10001; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); align-items: center; justify-content: center; }
+    .cerrar-modal { position: absolute; top: 30px; right: 25px; color: white; font-size: 30px; background: #333; border: none; width: 45px; height: 45px; border-radius: 50%; }
+    #modal-slider { width: 100%; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    #modal-slider img { width: 100vw; height: 80vh; object-fit: contain; flex-shrink: 0; scroll-snap-align: center; }
+  </style>
+</head>
+<body>
+
+  <a href="https://wa.me/51983388379?text=Hola%20Teyner%20Caps!%20Quiero%20ver%20el%20CATÁLOGO%20completo" class="wsp-float">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="20">
+    VER CATÁLOGO COMPLETO
+  </a>
+
+  <div class="banner-urgencia">⏳ PROMO: 2 FITTED X S/ 100 | ¡DINO GRATIS! 🦖</div>
+
+  <div class="header">
+    <img src="https://i.ibb.co/YJbgnJF/1767545207974.png" class="logo-principal">
+    <div class="nombre-marca">TEYNER CAPS</div>
+  </div>
+
+  <div class="portada-container">
+    <img src="https://i.ibb.co/0jNDCrxZ/1768234141968.png" class="portada-img">
+    <div class="portada-texto">
+      <h2>Colección Streetwear</h2>
+      <p>LAS MEJORES FITTED DEL PERÚ 🔥</p>
+    </div>
+  </div>
+
+  <div class="metodos-entrega-top">
+    📍 LIMA Y PROVINCIAS: ¡PAGO CONTRA ENTREGA!
+  </div>
+
+  <div class="seccion-dino-dorado">
+    🏆 BUSCA EL DINO DORADO = GORRA GRATIS ✨
+  </div>
+
+  <div class="grid-productos">
+    <div class="producto">
+      <div class="tag-pago">CONTRA ENTREGA ✅</div>
+      <div class="contenedor-galeria" id="gmora">
+        <img src="https://i.ibb.co/8pSXZbR/20260217-233500.jpg" onclick="abrirSlider('gmora', 0)">
+        <img src="https://i.ibb.co/QFKPPZJQ/20260217-233506.jpg" onclick="abrirSlider('gmora', 1)">
+        <img src="https://i.ibb.co/13nJ6Dc/20260217-233521.jpg" onclick="abrirSlider('gmora', 2)">
+        <img src="https://i.ibb.co/23jwY704/20260217-233532.jpg" onclick="abrirSlider('gmora', 3)">
+      </div>
+      <span class="nombre-modelo">New Era x Mora Limited</span>
+      <span class="precio">S/ 55.00</span>
+      <select id="tmora" class="selector-talla"><option>7 1/8</option><option>7 1/4</option><option>7 3/8</option><option>7 1/2</option></select>
+      <button onclick="enviar('Mora Limited', 'tmora')" class="btn-wsp">PEDIR AHORA</button>
+    </div>
+
+    <div class="producto">
+      <div class="tag-pago">CONTRA ENTREGA ✅</div>
+      <div class="contenedor-galeria" id="g1">
+        <img src="https://i.ibb.co/xqPGHD08/20251229-153629.png" onclick="abrirSlider('g1', 0)">
+        <img src="https://i.ibb.co/Kp57Ws8f/20251229-153629-1.png" onclick="abrirSlider('g1', 1)">
+        <img src="https://i.ibb.co/TMn1Jxhx/20251229-153629-2.png" onclick="abrirSlider('g1', 2)">
+        <img src="https://i.ibb.co/svrZHq87/20251229-153629-3.png" onclick="abrirSlider('g1', 3)">
+      </div>
+      <span class="nombre-modelo">NY Yankees Eyes</span>
+      <span class="precio">S/ 55.00</span>
+      <select id="t1" class="selector-talla"><option>7 1/8</option><option>7 1/4</option><option>7 3/8</option><option>7 1/2</option></select>
+      <button onclick="enviar('NY Eyes', 't1')" class="btn-wsp">PEDIR AHORA</button>
+    </div>
+    
+    <div class="producto">
+      <div class="tag-pago">CONTRA ENTREGA ✅</div>
+      <div class="contenedor-galeria" id="g2">
+        <img src="https://i.ibb.co/kCCfFX1/20251229-153629-4.png" onclick="abrirSlider('g2', 0)">
+        <img src="https://i.ibb.co/0jxTfKYt/20251229-153629-5.png" onclick="abrirSlider('g2', 1)">
+        <img src="https://i.ibb.co/n8KstJqJ/20251229-153629-6.png" onclick="abrirSlider('g2', 2)">
+        <img src="https://i.ibb.co/vvqm7RbF/20251229-153629-7.png" onclick="abrirSlider('g2', 3)">
+      </div>
+      <span class="nombre-modelo">City of Angeles Limited</span>
+      <span class="precio">S/ 55.00</span>
+      <select id="t2" class="selector-talla"><option>7 1/8</option><option>7 1/4</option><option>7 3/8</option><option>7 1/2</option></select>
+      <button onclick="enviar('City Angeles', 't2')" class="btn-wsp">PEDIR AHORA</button>
+    </div>
+
+    <div class="producto">
+      <div class="tag-pago">CONTRA ENTREGA ✅</div>
+      <div class="contenedor-galeria" id="g3">
+        <img src="https://i.ibb.co/35w707Yg/20251229-153629-8.png" onclick="abrirSlider('g3', 0)">
+        <img src="https://i.ibb.co/KpkLKxRt/20251229-153629-9.png" onclick="abrirSlider('g3', 1)">
+        <img src="https://i.ibb.co/vx1SDF16/20251229-153629-10.png" onclick="abrirSlider('g3', 2)">
+        <img src="https://i.ibb.co/99HjK0RQ/20251229-153629-11.png" onclick="abrirSlider('g3', 3)">
+      </div>
+      <span class="nombre-modelo">59 Fifty Anniversary</span>
+      <span class="precio">S/ 55.00</span>
+      <select id="t3" class="selector-talla"><option>7 1/8</option><option>7 1/4</option><option>7 3/8</option><option>7 1/2</option></select>
+      <button onclick="enviar('59 Fifty', 't3')" class="btn-wsp">PEDIR AHORA</button>
+    </div>
+
+    <div class="producto">
+      <div class="tag-pago">CONTRA ENTREGA ✅</div>
+      <div class="contenedor-galeria" id="g4">
+        <img src="https://i.ibb.co/8LZLGhK8/20251229-153629-15.png" onclick="abrirSlider('g4', 0)">
+        <img src="https://i.ibb.co/Lzz73KcJ/20251229-153629-14.png" onclick="abrirSlider('g4', 1)">
+        <img src="https://i.ibb.co/wFc68VDc/20251229-153629-13.png" onclick="abrirSlider('g4', 2)">
+        <img src="https://i.ibb.co/F4nXbPKz/20251229-153629-16.png" onclick="abrirSlider('g4', 3)">
+      </div>
+      <span class="nombre-modelo">New Era Graffiti Special</span>
+      <span class="precio">S/ 55.00</span>
+      <select id="t4" class="selector-talla"><option>7 1/8</option><option>7 1/4</option><option>7 3/8</option><option>7 1/2</option></select>
+      <button onclick="enviar('Graffiti', 't4')" class="btn-wsp">PEDIR AHORA</button>
+    </div>
+  </div>
+
+  <div style="margin-top: 25px;">
+    <div class="box-logistica">
+      <b>🏠 LIMA: PAGO CONTRA ENTREGA</b>
+      <p>Pagas al motorizado cuando recibes tu producto.</p>
+    </div>
+    <div class="box-logistica">
+      <b>📦 PROVINCIAS: PAGO CONTRA ENTREGA (SHALOM)</b>
+      <p>Envío seguro por Shalom. Pagas en la agencia al recoger.</p>
+    </div>
+  </div>
+
+  <div class="seccion-testimonios">
+    <h3 style="text-align:center; color:var(--accent); margin-bottom:20px;">CLIENTES SATISFECHOS ✅</h3>
+    <div class="testimonio-card">
+      <div style="display:flex; align-items:center; margin-bottom:10px;"><img src="https://i.ibb.co/zhHXqCTm/IMG-20251230-WA0050.jpg" style="width:40px; border-radius:50%; margin-right:10px;"><b>John Alexis ⭐⭐⭐⭐⭐</b></div>
+      <p style="font-size:11px;">"Ya me llegaron mi terrible tío Teyner Muchas gracias es tan elegantes full calidad"</p>
+      <img src="https://i.ibb.co/WW6yxjHg/20251230-194544.jpg" class="llegada-foto" onclick="abrirSola(this.src)">
+      <img src="https://i.ibb.co/fzqNCyXs/20251230-194404.jpg" class="llegada-foto" onclick="abrirSola(this.src)">
+    </div>
+    <div class="testimonio-card">
+      <div style="display:flex; align-items:center; margin-bottom:10px;"><img src="https://i.ibb.co/Zswt0Tk/1767143372157.png" style="width:40px; border-radius:50%; margin-right:10px;"><b>Christian Efraín ⭐⭐⭐⭐⭐</b></div>
+      <p style="font-size:11px;">"Acabo de recoger mi pedido todo conforme súper calidad"</p>
+      <img src="https://i.ibb.co/Xx62tRnr/20251230-205823.jpg" class="llegada-foto" onclick="abrirSola(this.src)">
+    </div>
+    <div class="testimonio-card">
+      <div style="display:flex; align-items:center; margin-bottom:10px;"><img src="https://i.ibb.co/DP2DYYMQ/file-0000000084f471f5b6f8e4b5006888dd.png" style="width:40px; border-radius:50%; margin-right:10px;"><b>Percy Quintana ⭐⭐⭐⭐⭐</b></div>
+      <p style="font-size:11px;">"Chébere manito es tan elegante los techos 100% recomendado"</p>
+      <img src="https://i.ibb.co/Csz02G1z/file-00000000c464720eb387f9e8f06612df.png" class="llegada-foto" onclick="abrirSola(this.src)">
+    </div>
+  </div>
+
+  <div id="modal-container" class="modal"><button class="cerrar-modal" onclick="cerrarSlider()">✕</button><div id="modal-slider"></div></div>
+
+  <script>
+    function abrirSlider(idGal, index) {
+      const imgs = document.getElementById(idGal).getElementsByTagName('img');
+      let html = '';
+      for (let i = 0; i < imgs.length; i++) html += `<img src="${imgs[i].src}">`;
+      const slider = document.getElementById('modal-slider');
+      slider.innerHTML = html;
+      document.getElementById('modal-container').style.display = 'flex';
+      slider.scrollLeft = index * window.innerWidth;
+    }
+    function abrirSola(src) {
+      document.getElementById('modal-slider').innerHTML = `<img src="${src}">`;
+      document.getElementById('modal-container').style.display = 'flex';
+    }
+    function cerrarSlider() { document.getElementById('modal-container').style.display = 'none'; }
+    function enviar(mod, id) {
+      const t = document.getElementById(id).value;
+      window.location.href = `https://wa.me/51983388379?text=Hola%20Teyner%20Caps!%20Quiero%20la%20${mod}%20talla%20${t}.%20Vengo%20de%20TikTok!`;
+    }
+  </script>
+</body>
+</html>
