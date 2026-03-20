@@ -16,40 +16,163 @@
   }(window, document, 'ttq');
   </script>
   <style>
-    :root { --accent: #25d366; --gold: #bf953f; }
-    body { font-family: 'Helvetica', Arial, sans-serif; background-color: #0d0d0d; color: #ffffff; margin: 0; padding-bottom: 100px; overflow-x: hidden; }
-    
-    .banner-urgencia { background: #ff4d4d; color: white; text-align: center; padding: 10px; font-size: 11px; font-weight: bold; position: sticky; top: 0; z-index: 1000; letter-spacing: 1px; }
-    
-    .header { text-align: center; padding: 20px 0; }
-    .logo-principal { width: 90px; border-radius: 50%; border: 2px solid var(--accent); padding: 5px; background: #1a1a1a; }
+    :root {
+      --accent: #25d366;
+      --gold: #bf953f;
+      --bg: #0d0d0d;
+      --card: #1a1a1a;
+      --border: #333;
+      --muted: #cccccc;
+      --danger: #ff4d4d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Helvetica', Arial, sans-serif;
+      background-color: var(--bg);
+      color: #ffffff;
+      margin: 0;
+      padding-bottom: 88px;
+      overflow-x: hidden;
+    }
+
+    .banner-urgencia {
+      background: var(--danger);
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 11px;
+      font-weight: bold;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      letter-spacing: 1px;
+    }
+
+    .header { text-align: center; padding: 20px 0 14px; }
+    .logo-principal {
+      width: 90px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      padding: 5px;
+      background: #1a1a1a;
+    }
     .nombre-marca { font-size: 24px; font-weight: 900; margin-top: 10px; letter-spacing: 3px; }
+    .rating-top { margin-top: 8px; color: #ffd34d; font-size: 13px; font-weight: 800; }
 
-    .portada-container { width: 100%; position: relative; line-height: 0; margin-bottom: 20px; }
+    .portada-container { width: 100%; position: relative; line-height: 0; margin-bottom: 18px; }
     .portada-img { width: 100%; height: auto; display: block; }
-    .portada-texto { 
-      position: absolute; 
-      bottom: 0; left: 0; right: 0; 
-      background: linear-gradient(transparent, rgba(0,0,0,0.9) 85%); 
-      padding: 40px 15px 15px 15px; 
+    .portada-texto {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.92) 85%);
+      padding: 46px 15px 16px 15px;
+      line-height: 1.2;
     }
-    .portada-texto h2 { margin: 0; font-size: 20px; text-transform: uppercase; color: #fff; line-height: 1.2; }
-    .portada-texto p { margin: 8px 0 0 0; font-size: 12px; color: var(--accent); font-weight: bold; letter-spacing: 0.5px; }
-
-    .wsp-float {
-      position: fixed; bottom: 20px; right: 15px; left: 15px; background: var(--accent);
-      color: white; padding: 18px; border-radius: 50px; display: flex; align-items: center;
-      justify-content: center; gap: 10px; text-decoration: none; font-weight: 900;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.8); z-index: 9999; font-size: 14px;
+    .portada-texto h1 { margin: 0; font-size: 21px; color: #fff; line-height: 1.15; }
+    .portada-texto .rating-line { margin: 9px 0 0; font-size: 12px; color: #ffd34d; font-weight: 800; }
+    .portada-texto p { margin: 8px 0 0 0; font-size: 12px; color: #fff; font-weight: bold; letter-spacing: 0.2px; }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .hero-badge {
+      background: rgba(37,211,102,.12);
+      border: 1px solid rgba(37,211,102,.35);
+      color: #fff;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1;
     }
 
-    .metodos-entrega-top { background: var(--accent); color: #000; text-align: center; padding: 12px; margin: 10px 15px; border-radius: 12px; font-weight: 900; font-size: 12px; }
-
-    .seccion-dino-dorado { 
-      background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 45%, #b38728 100%); 
-      margin: 15px; border-radius: 15px; padding: 18px; text-align: center; color: #000; 
-      font-weight: 900; border: 2px solid #fff; font-size: 13px;
+    .section-card {
+      background: #141414;
+      margin: 0 15px 14px;
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
     }
+    .section-card h2 { margin: 0 0 8px; font-size: 19px; line-height: 1.2; }
+    .section-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.45; }
+    .section-label {
+      color: var(--accent);
+      text-transform: uppercase;
+      font-weight: 900;
+      font-size: 11px;
+      letter-spacing: .8px;
+      margin-bottom: 8px;
+    }
+
+    .combos {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .combo {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      position: relative;
+    }
+    .combo.featured { border-color: var(--accent); }
+    .combo-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--accent);
+      color: #05250f;
+      font-size: 10px;
+      font-weight: 900;
+      padding: 5px 8px;
+      border-radius: 999px;
+    }
+    .combo h3 { margin: 0; font-size: 15px; }
+    .combo .price { color: var(--accent); font-size: 26px; font-weight: 900; margin-top: 6px; display: block; }
+    .combo .desc { margin-top: 5px; color: var(--muted); font-size: 12px; line-height: 1.4; }
+    .combo .cta {
+      display: block;
+      margin-top: 10px;
+      text-align: center;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      padding: 11px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .mini-points { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-top: 12px; }
+    .mini-points div {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 8px;
+      text-align: center;
+      font-size: 11px;
+      line-height: 1.3;
+      font-weight: 800;
+    }
+
+    .bullet-list { display: grid; gap: 10px; margin-top: 12px; }
+    .bullet-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 12px 14px;
+      font-size: 13px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .image-story {
+      background: var(--card);
+      margin: 0 15px 14px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .image-story img { width: 100%; height: auto; display: block; }
+    .image-story p { margin: 0; padding: 12px 14px; font-size: 13px; color: var(--muted); line-height: 1.45; }
 
     .grid-productos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 15px; }
     .producto { background-color: #1a1a1a; border: 1px solid #333; border-radius: 15px; padding: 10px; text-align: center; position: relative; }
@@ -62,121 +185,265 @@
     .nombre-modelo { font-size: 10px; font-weight: bold; height: 32px; display: flex; align-items: center; justify-content: center; margin: 8px 0; line-height: 1.2; }
     .precio { color: var(--accent); font-weight: 900; font-size: 18px; display: block; margin-bottom: 8px; }
     .selector-talla { width: 100%; padding: 8px; background: #222; border: 1px solid #444; border-radius: 6px; color: white; font-size: 11px; margin-bottom: 8px; }
-    .btn-wsp { background: var(--accent); color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; font-weight: bold; font-size: 10px; }
+    .btn-wsp { background: var(--accent); color: white; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: 900; font-size: 10px; cursor: pointer; box-shadow: 0 8px 18px rgba(37,211,102,.22); animation: pulseBtn 1.9s infinite; }
+    .btn-wsp-sec { display:block; margin-top:8px; background:#fff; color:#111; border:1px solid #dcdcdc; padding:10px; border-radius:8px; width:100%; font-weight:900; font-size:10px; cursor:pointer; }
+    .combo .cta { animation: pulseBtn 1.9s infinite; }
+    .wsp-float { animation: pulseFloat 2s infinite; }
+    @keyframes pulseBtn { 0%{transform:scale(1)} 50%{transform:scale(1.03)} 100%{transform:scale(1)} }
+    @keyframes pulseFloat { 0%{transform:translateY(0)} 50%{transform:translateY(-2px)} 100%{transform:translateY(0)} }
 
     .box-logistica { background: #1a1a1a; margin: 0 15px 12px; padding: 15px; border-radius: 15px; border: 1px solid #333; }
     .box-logistica b { color: var(--accent); display: block; margin-bottom: 5px; font-size: 13px; }
-    .box-logistica p { margin: 0; font-size: 11px; color: #ccc; }
+    .box-logistica p { margin: 0; font-size: 11px; color: #ccc; line-height: 1.45; }
 
-    .seccion-testimonios { background: #111; padding: 30px 15px; margin-top: 20px; }
+    .seccion-testimonios { background: #111; padding: 30px 15px; margin-top: 22px; }
+    .seccion-testimonios h3 { text-align:center; color:var(--accent); margin:0 0 8px; font-size:22px; }
+    .seccion-testimonios .sub { text-align:center; color:var(--muted); font-size:13px; line-height:1.45; margin:0 0 20px; }
     .testimonio-card { background: #1a1a1a; padding: 15px; border-radius: 15px; margin-bottom: 15px; border-left: 4px solid var(--accent); }
-    .llegada-foto { width: 75px; height: 75px; border-radius: 8px; object-fit: cover; margin-top: 10px; margin-right: 5px; border: 1px solid #333; }
+    .llegada-foto { width: 75px; height: 75px; border-radius: 8px; object-fit: cover; margin-top: 10px; margin-right: 5px; border: 1px solid #333; cursor: pointer; }
+
+    .faq-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      margin-top: 10px;
+    }
+    .faq-card strong { display: block; margin-bottom: 6px; font-size: 14px; }
+    .faq-card span { color: var(--muted); font-size: 13px; line-height: 1.45; }
+
+    .wsp-float {
+      position: fixed;
+      bottom: 14px;
+      right: 18px;
+      left: 18px;
+      background: var(--accent);
+      color: white;
+      padding: 13px 16px;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 900;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.55);
+      z-index: 9999;
+      font-size: 13px;
+    }
 
     .modal { display: none; position: fixed; z-index: 10001; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); align-items: center; justify-content: center; }
-    .cerrar-modal { position: absolute; top: 30px; right: 25px; color: white; font-size: 30px; background: #333; border: none; width: 45px; height: 45px; border-radius: 50%; }
+    .cerrar-modal { position: absolute; top: 30px; right: 25px; color: white; font-size: 30px; background: #333; border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; }
     #modal-slider { width: 100%; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
     #modal-slider img { width: 100vw; height: 80vh; object-fit: contain; flex-shrink: 0; scroll-snap-align: center; }
-  </style>
+
+    @media (min-width: 768px) {
+      .banner-urgencia, .header, .portada-container, .section-card, .image-story, .grid-productos, .box-logistica, .seccion-testimonios { max-width: 520px; margin-left: auto; margin-right: auto; }
+      .grid-productos { padding: 0; }
+      .combos { grid-template-columns: repeat(3, 1fr); }
+    }
+  
+/* DESTACADOS */
+.tag-top{position:absolute;top:38px;left:15px;background:#25d366;color:#000;font-size:8px;padding:4px 6px;border-radius:4px;z-index:10;font-weight:900}
+.producto-top{border:1px solid #25d366 !important;box-shadow:0 0 0 1px rgba(37,211,102,.15)}
+.stock-alert{color:#ffd34d;font-size:10px;font-weight:800;margin:-2px 0 8px}
+.quick-trust{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin:7px 0 8px}
+.quick-trust span{background:#111;border:1px solid #2f2f2f;color:#fff;border-radius:999px;padding:4px 7px;font-size:8px;font-weight:800;line-height:1}
+.social-proof-mini{font-size:9px;color:#b7ffca;font-weight:800;margin:-2px 0 8px}
+</style>
 </head>
 <body>
 
   <a href="https://wa.me/51983388379?text=Hola%20Teyner%20Caps!%20Quiero%20ver%20el%20CATÁLOGO%20completo" class="wsp-float">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="20">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="18" alt="WhatsApp">
     VER CATÁLOGO COMPLETO
   </a>
 
-  <div class="banner-urgencia">⏳ PROMO: 2 FITTED X S/ 100 | ¡DINO GRATIS! 🦖</div>
+  <div class="banner-urgencia">⚡ PIDE HOY Y RECIBE MAÑANA | PAGO CONTRA ENTREGA</div>
 
   <div class="header">
-    <img src="https://i.ibb.co/YJbgnJF/1767545207974.png" class="logo-principal">
+    <img src="https://i.ibb.co/YJbgnJF/1767545207974.png" class="logo-principal" alt="Teyner Caps">
     <div class="nombre-marca">TEYNER CAPS</div>
+    <div class="rating-top">⭐⭐⭐⭐☆ 4.7/5 de 487 clientes</div>
   </div>
 
   <div class="portada-container">
-    <img src="https://i.ibb.co/0jNDCrxZ/1768234141968.png" class="portada-img">
+    <img src="https://i.ibb.co/0jNDCrxZ/1768234141968.png" class="portada-img" alt="Colección Streetwear Teyner Caps">
     <div class="portada-texto">
-      <h2>Colección Streetwear</h2>
-      <p>LAS MEJORES FITTED DEL PERÚ 🔥</p>
+      <h1>¿Quieres recibir tu gorra en menos de 24 horas y pagar cuando la tengas en tus manos?</h1>
+      <div class="rating-line">⭐⭐⭐⭐☆ (4.7/5 de 487 clientes)</div>
+      <p>🔥 Estilo urbano premium con entrega rápida en Lima</p>
+      <p>🚚 Pago contra entrega 100% seguro</p>
+      <div class="hero-badges">
+        <span class="hero-badge">🚚 Entrega rápida</span>
+        <span class="hero-badge">💰 Pago al recibir</span>
+        <span class="hero-badge">🔒 Compra segura</span>
+      </div>
     </div>
   </div>
 
-  <div class="metodos-entrega-top">
-    📍 LIMA Y PROVINCIAS: ¡PAGO CONTRA ENTREGA!
+  <div class="section-card">
+    <div class="section-label">Oferta principal</div>
+    <h2>Elige tu combo y ahorra más</h2>
+    <p>Compra con confianza, recibe rápido y aprovecha el mejor precio llevando más de una gorra.</p>
+    <div class="combos">
+      <div class="combo">
+        <h3>🧢 1 Gorra</h3>
+        <span class="price">S/55</span>
+        <div class="desc">Perfecta para llevar tu primer modelo.</div>
+        <a class="cta" href="https://wa.me/51983388379?text=Hola%20Teyner%20Caps!%20Quiero%20el%20combo%20de%201%20gorra.">Pedir ahora</a>
+      </div>
+      <div class="combo">
+        <h3>🧢🧢 2 Gorras</h3>
+        <span class="price">S/100</span>
+        <div class="desc">Ahorras S/10 y aprovechas mejor tu compra.</div>
+        <a class="cta" href="https://wa.me/51983388379?text=Hola%20Teyner%20Caps!%20Quiero%20el%20combo%20de%202%20gorras.">Pedir ahora</a>
+      </div>
+      <div class="combo featured">
+        <span class="combo-badge">MEJOR OFERTA</span>
+        <h3>🧢🧢🧢 3 Gorras</h3>
+        <span class="price">S/145</span>
+        <div class="desc">La promo más fuerte para ahorrar más.</div>
+        <a class="cta" href="https://wa.me/51983388379?text=Hola%20Teyner%20Caps!%20Quiero%20el%20combo%20de%203%20gorras.">Pedir ahora</a>
+      </div>
+    </div>
+    <div class="mini-points">
+      <div>🚚 Entrega en 24h</div>
+      <div>🛡️ Garantía 30 días</div>
+      <div>🔒 Compra segura</div>
+    </div>
   </div>
 
-  <div class="seccion-dino-dorado">
-    🏆 BUSCA EL DINO DORADO = GORRA GRATIS ✨
+  <div class="image-story">
+    <img src="https://i.ibb.co/Fqq77L1H/df42ef10-92b0-47b1-b682-446236a3aa76.png" alt="Entrega segura Teyner Caps">
+    <p>🤝 Compra con confianza: pago contra entrega y atención real en cada pedido.</p>
+  </div>
+
+  <div class="image-story">
+    <img src="https://i.ibb.co/21nDQKb8/ea6bd2a0-ab66-4fb6-b7e0-35743e9b1d7a.png" alt="Despacho rápido Teyner Caps">
+    <p>⚡ Pides hoy y te llega mañana: rapidez real para Lima con estilo urbano premium.</p>
   </div>
 
   <div class="grid-productos">
     <div class="producto">
       <div class="tag-pago">CONTRA ENTREGA ✅</div>
       <div class="contenedor-galeria" id="gmora">
-        <img src="https://i.ibb.co/8pSXZbR/20260217-233500.jpg" onclick="abrirSlider('gmora', 0)">
-        <img src="https://i.ibb.co/QFKPPZJQ/20260217-233506.jpg" onclick="abrirSlider('gmora', 1)">
-        <img src="https://i.ibb.co/13nJ6Dc/20260217-233521.jpg" onclick="abrirSlider('gmora', 2)">
-        <img src="https://i.ibb.co/23jwY704/20260217-233532.jpg" onclick="abrirSlider('gmora', 3)">
+        <img src="https://i.ibb.co/8pSXZbR/20260217-233500.jpg" onclick="abrirSlider('gmora', 0)" alt="Mora 1">
+        <img src="https://i.ibb.co/QFKPPZJQ/20260217-233506.jpg" onclick="abrirSlider('gmora', 1)" alt="Mora 2">
+        <img src="https://i.ibb.co/13nJ6Dc/20260217-233521.jpg" onclick="abrirSlider('gmora', 2)" alt="Mora 3">
+        <img src="https://i.ibb.co/23jwY704/20260217-233532.jpg" onclick="abrirSlider('gmora', 3)" alt="Mora 4">
       </div>
       <span class="nombre-modelo">New Era x Mora Limited</span>
       <span class="precio">S/ 55.00</span>
       <select id="tmora" class="selector-talla"><option>7 1/8</option><option>7 1/4</option><option>7 3/8</option><option>7 1/2</option></select>
+      <div class="quick-trust"><span>🚚 24h Lima</span><span>💰 Contra entrega</span></div>
+      <div class="social-proof-mini">🔥 Alta demanda esta semana</div>
       <button onclick="enviar('Mora Limited', 'tmora')" class="btn-wsp">PEDIR AHORA</button>
+      <button onclick="enviar('Mora Limited', 'tmora')" class="btn-wsp-sec">CONFIRMAR STOCK</button>
     </div>
 
     <div class="producto">
       <div class="tag-pago">CONTRA ENTREGA ✅</div>
       <div class="contenedor-galeria" id="g1">
-        <img src="https://i.ibb.co/xqPGHD08/20251229-153629.png" onclick="abrirSlider('g1', 0)">
-        <img src="https://i.ibb.co/Kp57Ws8f/20251229-153629-1.png" onclick="abrirSlider('g1', 1)">
-        <img src="https://i.ibb.co/TMn1Jxhx/20251229-153629-2.png" onclick="abrirSlider('g1', 2)">
-        <img src="https://i.ibb.co/svrZHq87/20251229-153629-3.png" onclick="abrirSlider('g1', 3)">
+        <img src="https://i.ibb.co/xqPGHD08/20251229-153629.png" onclick="abrirSlider('g1', 0)" alt="NY Eyes 1">
+        <img src="https://i.ibb.co/Kp57Ws8f/20251229-153629-1.png" onclick="abrirSlider('g1', 1)" alt="NY Eyes 2">
+        <img src="https://i.ibb.co/TMn1Jxhx/20251229-153629-2.png" onclick="abrirSlider('g1', 2)" alt="NY Eyes 3">
+        <img src="https://i.ibb.co/svrZHq87/20251229-153629-3.png" onclick="abrirSlider('g1', 3)" alt="NY Eyes 4">
       </div>
       <span class="nombre-modelo">NY Yankees Eyes</span>
       <span class="precio">S/ 55.00</span>
       <select id="t1" class="selector-talla"><option>7 1/8</option><option>7 1/4</option><option>7 3/8</option><option>7 1/2</option></select>
+      <div class="quick-trust"><span>🚚 24h Lima</span><span>💰 Contra entrega</span></div>
+      <div class="social-proof-mini">🔥 Alta demanda esta semana</div>
       <button onclick="enviar('NY Eyes', 't1')" class="btn-wsp">PEDIR AHORA</button>
+      <button onclick="enviar('NY Eyes', 't1')" class="btn-wsp-sec">CONFIRMAR STOCK</button>
     </div>
     
     <div class="producto">
       <div class="tag-pago">CONTRA ENTREGA ✅</div>
       <div class="contenedor-galeria" id="g2">
-        <img src="https://i.ibb.co/kCCfFX1/20251229-153629-4.png" onclick="abrirSlider('g2', 0)">
-        <img src="https://i.ibb.co/0jxTfKYt/20251229-153629-5.png" onclick="abrirSlider('g2', 1)">
-        <img src="https://i.ibb.co/n8KstJqJ/20251229-153629-6.png" onclick="abrirSlider('g2', 2)">
-        <img src="https://i.ibb.co/vvqm7RbF/20251229-153629-7.png" onclick="abrirSlider('g2', 3)">
+        <img src="https://i.ibb.co/kCCfFX1/20251229-153629-4.png" onclick="abrirSlider('g2', 0)" alt="City Angeles 1">
+        <img src="https://i.ibb.co/0jxTfKYt/20251229-153629-5.png" onclick="abrirSlider('g2', 1)" alt="City Angeles 2">
+        <img src="https://i.ibb.co/n8KstJqJ/20251229-153629-6.png" onclick="abrirSlider('g2', 2)" alt="City Angeles 3">
+        <img src="https://i.ibb.co/vvqm7RbF/20251229-153629-7.png" onclick="abrirSlider('g2', 3)" alt="City Angeles 4">
       </div>
       <span class="nombre-modelo">City of Angeles Limited</span>
       <span class="precio">S/ 55.00</span>
       <select id="t2" class="selector-talla"><option>7 1/8</option><option>7 1/4</option><option>7 3/8</option><option>7 1/2</option></select>
+      <div class="quick-trust"><span>🚚 24h Lima</span><span>💰 Contra entrega</span></div>
+      <div class="social-proof-mini">🔥 Alta demanda esta semana</div>
       <button onclick="enviar('City Angeles', 't2')" class="btn-wsp">PEDIR AHORA</button>
+      <button onclick="enviar('City Angeles', 't2')" class="btn-wsp-sec">CONFIRMAR STOCK</button>
     </div>
 
     <div class="producto">
       <div class="tag-pago">CONTRA ENTREGA ✅</div>
       <div class="contenedor-galeria" id="g3">
-        <img src="https://i.ibb.co/35w707Yg/20251229-153629-8.png" onclick="abrirSlider('g3', 0)">
-        <img src="https://i.ibb.co/KpkLKxRt/20251229-153629-9.png" onclick="abrirSlider('g3', 1)">
-        <img src="https://i.ibb.co/vx1SDF16/20251229-153629-10.png" onclick="abrirSlider('g3', 2)">
-        <img src="https://i.ibb.co/99HjK0RQ/20251229-153629-11.png" onclick="abrirSlider('g3', 3)">
+        <img src="https://i.ibb.co/35w707Yg/20251229-153629-8.png" onclick="abrirSlider('g3', 0)" alt="59 Fifty 1">
+        <img src="https://i.ibb.co/KpkLKxRt/20251229-153629-9.png" onclick="abrirSlider('g3', 1)" alt="59 Fifty 2">
+        <img src="https://i.ibb.co/vx1SDF16/20251229-153629-10.png" onclick="abrirSlider('g3', 2)" alt="59 Fifty 3">
+        <img src="https://i.ibb.co/99HjK0RQ/20251229-153629-11.png" onclick="abrirSlider('g3', 3)" alt="59 Fifty 4">
       </div>
       <span class="nombre-modelo">59 Fifty Anniversary</span>
       <span class="precio">S/ 55.00</span>
       <select id="t3" class="selector-talla"><option>7 1/8</option><option>7 1/4</option><option>7 3/8</option><option>7 1/2</option></select>
+      <div class="quick-trust"><span>🚚 24h Lima</span><span>💰 Contra entrega</span></div>
+      <div class="social-proof-mini">🔥 Alta demanda esta semana</div>
       <button onclick="enviar('59 Fifty', 't3')" class="btn-wsp">PEDIR AHORA</button>
+      <button onclick="enviar('59 Fifty', 't3')" class="btn-wsp-sec">CONFIRMAR STOCK</button>
     </div>
 
     <div class="producto">
       <div class="tag-pago">CONTRA ENTREGA ✅</div>
       <div class="contenedor-galeria" id="g4">
-        <img src="https://i.ibb.co/8LZLGhK8/20251229-153629-15.png" onclick="abrirSlider('g4', 0)">
-        <img src="https://i.ibb.co/Lzz73KcJ/20251229-153629-14.png" onclick="abrirSlider('g4', 1)">
-        <img src="https://i.ibb.co/wFc68VDc/20251229-153629-13.png" onclick="abrirSlider('g4', 2)">
-        <img src="https://i.ibb.co/F4nXbPKz/20251229-153629-16.png" onclick="abrirSlider('g4', 3)">
+        <img src="https://i.ibb.co/8LZLGhK8/20251229-153629-15.png" onclick="abrirSlider('g4', 0)" alt="Graffiti 1">
+        <img src="https://i.ibb.co/Lzz73KcJ/20251229-153629-14.png" onclick="abrirSlider('g4', 1)" alt="Graffiti 2">
+        <img src="https://i.ibb.co/wFc68VDc/20251229-153629-13.png" onclick="abrirSlider('g4', 2)" alt="Graffiti 3">
+        <img src="https://i.ibb.co/F4nXbPKz/20251229-153629-16.png" onclick="abrirSlider('g4', 3)" alt="Graffiti 4">
       </div>
       <span class="nombre-modelo">New Era Graffiti Special</span>
       <span class="precio">S/ 55.00</span>
       <select id="t4" class="selector-talla"><option>7 1/8</option><option>7 1/4</option><option>7 3/8</option><option>7 1/2</option></select>
+      <div class="quick-trust"><span>🚚 24h Lima</span><span>💰 Contra entrega</span></div>
+      <div class="social-proof-mini">🔥 Alta demanda esta semana</div>
       <button onclick="enviar('Graffiti', 't4')" class="btn-wsp">PEDIR AHORA</button>
+      <button onclick="enviar('Graffiti', 't4')" class="btn-wsp-sec">CONFIRMAR STOCK</button>
+    </div>
+    <div class="producto producto-top">
+      <div class="tag-pago">CONTRA ENTREGA ✅</div>
+      <div class="tag-top">🔥 MÁS VENDIDA</div>
+      <div class="contenedor-galeria" id="g5">
+        <img src="https://i.ibb.co/cSjhX5Xr/Photoroom-20260319-112415801-1.png" onclick="abrirSlider('g5', 0)" alt="Mythical 1">
+        <img src="https://i.ibb.co/xK1mn61M/Photoroom-20260319-120417611-4.png" onclick="abrirSlider('g5', 1)" alt="Mythical 2">
+        <img src="https://i.ibb.co/k6XF32tM/Photoroom-20260319-120417611-5.png" onclick="abrirSlider('g5', 2)" alt="Mythical 3">
+        <img src="https://i.ibb.co/LhndxS1J/Photoroom-20260319-120417611-6.png" onclick="abrirSlider('g5', 3)" alt="Mythical 4">
+      </div>
+      <span class="nombre-modelo">Mythical x New Era</span>
+      <span class="precio">S/ 55.00</span>
+      <div class="stock-alert">Stock limitado • alta rotación</div>
+      <select id="t5" class="selector-talla"><option>7 1/8</option><option>7 1/4</option><option>7 3/8</option><option>7 1/2</option></select>
+      <div class="quick-trust"><span>🚚 24h Lima</span><span>💰 Contra entrega</span></div>
+      <div class="social-proof-mini">🔥 Alta demanda esta semana</div>
+      <button onclick="enviar('Mythical New Era', 't5')" class="btn-wsp">PEDIR AHORA</button>
+      <button onclick="enviar('Mythical New Era', 't5')" class="btn-wsp-sec">CONFIRMAR STOCK</button>
+    </div>
+    <div class="producto">
+      <div class="tag-pago">CONTRA ENTREGA ✅</div>
+      <div class="tag-top" style="background:#ffd34d;">⭐ NUEVO</div>
+      <div class="contenedor-galeria" id="g6">
+        <img src="https://i.ibb.co/v4Jc7h1J/Photoroom-20260319-112415801.png" onclick="abrirSlider('g6', 0)" alt="Floral 1">
+        <img src="https://i.ibb.co/cSRkP9ZG/Photoroom-20260319-120417611.png" onclick="abrirSlider('g6', 1)" alt="Floral 2">
+        <img src="https://i.ibb.co/Qjns1gJF/Photoroom-20260319-120417611-1.png" onclick="abrirSlider('g6', 2)" alt="Floral 3">
+        <img src="https://i.ibb.co/SXdgtpPv/Photoroom-20260319-120417611-2.png" onclick="abrirSlider('g6', 3)" alt="Floral 4">
+      </div>
+      <span class="nombre-modelo">Floral Black x New Era</span>
+      <span class="precio">S/ 55.00</span>
+      <div class="stock-alert">Stock limitado • alta rotación</div>
+      <select id="t6" class="selector-talla"><option>7 1/8</option><option>7 1/4</option><option>7 3/8</option><option>7 1/2</option></select>
+      <div class="quick-trust"><span>🚚 24h Lima</span><span>💰 Contra entrega</span></div>
+      <div class="social-proof-mini">🔥 Alta demanda esta semana</div>
+      <button onclick="enviar('Floral Black New Era', 't6')" class="btn-wsp">PEDIR AHORA</button>
+      <button onclick="enviar('Floral Black New Era', 't6')" class="btn-wsp-sec">CONFIRMAR STOCK</button>
     </div>
   </div>
 
@@ -192,23 +459,101 @@
   </div>
 
   <div class="seccion-testimonios">
-    <h3 style="text-align:center; color:var(--accent); margin-bottom:20px;">CLIENTES SATISFECHOS ✅</h3>
+    <h3>CLIENTES SATISFECHOS ✅</h3>
+    <p class="sub">Miles ya están usando Teyner Caps. Estas son algunas entregas reales y opiniones de clientes felices.</p>
     <div class="testimonio-card">
-      <div style="display:flex; align-items:center; margin-bottom:10px;"><img src="https://i.ibb.co/zhHXqCTm/IMG-20251230-WA0050.jpg" style="width:40px; border-radius:50%; margin-right:10px;"><b>John Alexis ⭐⭐⭐⭐⭐</b></div>
-      <p style="font-size:11px;">"Ya me llegaron mi terrible tío Teyner Muchas gracias es tan elegantes full calidad"</p>
-      <img src="https://i.ibb.co/WW6yxjHg/20251230-194544.jpg" class="llegada-foto" onclick="abrirSola(this.src)">
-      <img src="https://i.ibb.co/fzqNCyXs/20251230-194404.jpg" class="llegada-foto" onclick="abrirSola(this.src)">
+      <div style="display:flex; align-items:center; margin-bottom:10px;"><img src="https://i.ibb.co/zhHXqCTm/IMG-20251230-WA0050.jpg" style="width:40px; border-radius:50%; margin-right:10px;" alt="John Alexis"><b>John Alexis ⭐⭐⭐⭐⭐</b></div>
+      <p style="font-size:11px; line-height:1.45;">"Ya me llegaron mi terrible tío Teyner Muchas gracias es tan elegantes full calidad"</p>
+      <img src="https://i.ibb.co/WW6yxjHg/20251230-194544.jpg" class="llegada-foto" onclick="abrirSola(this.src)" alt="Pedido John 1">
+      <img src="https://i.ibb.co/fzqNCyXs/20251230-194404.jpg" class="llegada-foto" onclick="abrirSola(this.src)" alt="Pedido John 2">
     </div>
     <div class="testimonio-card">
-      <div style="display:flex; align-items:center; margin-bottom:10px;"><img src="https://i.ibb.co/Zswt0Tk/1767143372157.png" style="width:40px; border-radius:50%; margin-right:10px;"><b>Christian Efraín ⭐⭐⭐⭐⭐</b></div>
-      <p style="font-size:11px;">"Acabo de recoger mi pedido todo conforme súper calidad"</p>
-      <img src="https://i.ibb.co/Xx62tRnr/20251230-205823.jpg" class="llegada-foto" onclick="abrirSola(this.src)">
+      <div style="display:flex; align-items:center; margin-bottom:10px;"><img src="https://i.ibb.co/Zswt0Tk/1767143372157.png" style="width:40px; border-radius:50%; margin-right:10px;" alt="Christian Efraín"><b>Christian Efraín ⭐⭐⭐⭐⭐</b></div>
+      <p style="font-size:11px; line-height:1.45;">"Acabo de recoger mi pedido todo conforme súper calidad"</p>
+      <img src="https://i.ibb.co/Xx62tRnr/20251230-205823.jpg" class="llegada-foto" onclick="abrirSola(this.src)" alt="Pedido Christian">
     </div>
     <div class="testimonio-card">
-      <div style="display:flex; align-items:center; margin-bottom:10px;"><img src="https://i.ibb.co/DP2DYYMQ/file-0000000084f471f5b6f8e4b5006888dd.png" style="width:40px; border-radius:50%; margin-right:10px;"><b>Percy Quintana ⭐⭐⭐⭐⭐</b></div>
-      <p style="font-size:11px;">"Chébere manito es tan elegante los techos 100% recomendado"</p>
-      <img src="https://i.ibb.co/Csz02G1z/file-00000000c464720eb387f9e8f06612df.png" class="llegada-foto" onclick="abrirSola(this.src)">
+      <div style="display:flex; align-items:center; margin-bottom:10px;"><img src="https://i.ibb.co/DP2DYYMQ/file-0000000084f471f5b6f8e4b5006888dd.png" style="width:40px; border-radius:50%; margin-right:10px;" alt="Percy Quintana"><b>Percy Quintana ⭐⭐⭐⭐⭐</b></div>
+      <p style="font-size:11px; line-height:1.45;">"Chébere manito es tan elegante los techos 100% recomendado"</p>
+      <img src="https://i.ibb.co/Csz02G1z/file-00000000c464720eb387f9e8f06612df.png" class="llegada-foto" onclick="abrirSola(this.src)" alt="Pedido Percy">
     </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-label">Landing optimizada</div>
+    <h2>¿Cansado de comprar online y que tu pedido no cumpla?</h2>
+    <div class="bullet-list">
+      <div class="bullet-item">❌ Tu pedido nunca llegue</div>
+      <div class="bullet-item">❌ Te entreguen productos de mala calidad</div>
+      <div class="bullet-item">❌ Tarde semanas en llegar</div>
+      <div class="bullet-item">👉 Sabemos lo frustrante que es perder tu dinero comprando sin confianza.</div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-label">Solución</div>
+    <h2>Con Teyner Caps recibes exactamente lo que pides, rápido y seguro</h2>
+    <div class="bullet-list">
+      <div class="bullet-item">✔ Diseño urbano original</div>
+      <div class="bullet-item">✔ Material resistente y cómodo</div>
+      <div class="bullet-item">✔ Ajuste perfecto para cualquier estilo</div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-label">Beneficios</div>
+    <h2>Lo que hace diferente a Teyner Caps</h2>
+    <div class="bullet-list">
+      <div class="bullet-item">🔥 Eleva tu estilo al instante</div>
+      <div class="bullet-item">🧢 Combina con cualquier outfit</div>
+      <div class="bullet-item">💯 Material premium duradero</div>
+      <div class="bullet-item">😎 Look urbano auténtico</div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-label">Cambio de vida</div>
+    <h2>Antes ibas básico. Ahora destacas.</h2>
+    <div class="bullet-list">
+      <div class="bullet-item">❌ Antes: estilo básico y sin presencia</div>
+      <div class="bullet-item">✅ Después: más estilo, más seguridad y más atención</div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-label">Proceso</div>
+    <h2>Comprar es fácil</h2>
+    <div class="bullet-list">
+      <div class="bullet-item">1. Haces tu pedido</div>
+      <div class="bullet-item">2. Confirmamos por WhatsApp</div>
+      <div class="bullet-item">3. Despachamos el mismo día</div>
+      <div class="bullet-item">4. Recibes y pagas en tu casa</div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-label">FAQ</div>
+    <h2>Resolvemos tus dudas</h2>
+    <div class="faq-card"><strong>¿Cómo pago?</strong><span>Pagas cuando recibes tu pedido o cuando recoges en agencia.</span></div>
+    <div class="faq-card"><strong>¿Cuánto demora?</strong><span>24h en Lima y de 2 a 4 días para provincia.</span></div>
+    <div class="faq-card"><strong>¿Es seguro?</strong><span>Sí. Solo pagas cuando tienes el producto contigo.</span></div>
+    <div class="faq-card"><strong>¿Puedo pedir varias?</strong><span>Sí, y te sale más barato con los combos.</span></div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-label">Urgencia real</div>
+    <h2>Hoy estamos despachando pedidos para entrega rápida</h2>
+    <div class="bullet-list">
+      <div class="bullet-item">⚡ Si pides hoy, tu pedido entra en ruta prioritaria</div>
+      <div class="bullet-item">📦 Stock variable según modelo y talla</div>
+      <div class="bullet-item">💬 Confirma por WhatsApp antes de que se agoten tus favoritas</div>
+    </div>
+  </div>
+
+  <div class="section-card" style="margin-bottom:20px;">
+    <div class="section-label">Cierre</div>
+    <h2>Miles ya están usando Teyner Caps… ahora te toca a ti</h2>
+    <p>🔥 Stock limitado · ⚡ Entrega rápida · 💰 Pago contra entrega</p>
   </div>
 
   <div id="modal-container" class="modal"><button class="cerrar-modal" onclick="cerrarSlider()">✕</button><div id="modal-slider"></div></div>
@@ -230,7 +575,8 @@
     function cerrarSlider() { document.getElementById('modal-container').style.display = 'none'; }
     function enviar(mod, id) {
       const t = document.getElementById(id).value;
-      window.location.href = `https://wa.me/51983388379?text=Hola%20Teyner%20Caps!%20Quiero%20la%20${mod}%20talla%20${t}.%20Vengo%20de%20TikTok!`;
+      window.location.href = `https://wa.me/51983388379?text=Hola%20Teyner%20Caps,%20quiero%20pedir%20el%20modelo%20${mod}%20en%20talla%20${t}.%20%C2%BFMe%20confirman%20stock?`;
+    }%20talla%20${t}.%20Vengo%20de%20TikTok!`;
     }
   </script>
 </body>
